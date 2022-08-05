@@ -1,4 +1,7 @@
+
 # Smooth Edged Masonry
+**[Demo](https://daniilshat.ru/)**  
+
 **SE Masonry** — is a simple lightweight script that allows you to display a set of images on a page in a masonry grid. The grid can be oriented both horizontally and vertically.  
 
 The columns or rows of the grid are lined up and adjusted to compensate for "uneven edges". Thus, your gallery will always have the shape of a rectangle, beyond which nothing will go out.
