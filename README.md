@@ -9,7 +9,7 @@ The columns or rows of the grid are lined up and adjusted to compensate for "une
 - Open source and the ability to refine solutions using JS and CSS
 - Vanilla JS without dependencies
 
-Note! At the moment, SE Masonry does not have its own lightbox for viewing images, but we are working on it!
+**Note!** At the moment, SE Masonry does not have its own lightbox for viewing images, but we are working on it!
 
 ## Contents of the repository
 `/dist` - contains a folder "class" with js classes files (both original and minified) 
