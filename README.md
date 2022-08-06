@@ -29,7 +29,7 @@ The columns or rows of the grid are lined up and adjusted to compensate for "une
 
 
 # How it works
-The clear code is worth a thousand words. You can see how the script works by looking at the code of `/example/index.html`.
+The clear code is worth a thousand words. You can see how the script works by looking at the code of `/example/index.html`, or just visit the [demo page](https://unfashion.github.io/Smooth-Edged-Masonry/example/)** 
 
 **Note!** If you want to see an example (`/example/index.html`) running offline, you need to run this file through a local web server. You can use solutions like "Live Server", or "Dev Server". If you do not know how to work with local servers, then the easiest way is to upload the entire contents of the `/example/` folder to your hosting and check the script online.
 
