@@ -8,7 +8,7 @@ The columns or rows of the grid are lined up and adjusted to compensate for "une
 
 ## Features ##
 - Horizontal and vertical orientation of the grid to choose from
-- Responsive behavior settings for screens or containers width different widths
+- Responsive behavior settings for screens or containers with different widths
 - Open source and the ability to refine solutions using JS and CSS
 - Vanilla JS without dependencies
 
