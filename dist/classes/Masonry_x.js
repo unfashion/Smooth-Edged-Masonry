@@ -23,6 +23,7 @@ export default class Masonry_x {
         });
     }
 
+    // Define breakpoint from the array 'breakPoints' that corresponds to the width of the gallery container
     adaptDefine() {
         this.breakPoints.forEach((point, i) => {
             if (this.mainContainer.clientWidth >= point) {
@@ -32,6 +33,7 @@ export default class Masonry_x {
         });
     }
 
+    // Rebuilding the grid when changing the width of the main container
     onResize() {
         this.mainContainerNewWidth = this.mainContainer.clientWidth;
         if (this.mainContainerWidth != this.mainContainerNewWidth) {
@@ -48,18 +50,20 @@ export default class Masonry_x {
         }
     }
 
+    // Add inline css for items of gallery BEFORE loading images.
+    // Hide items to wait for images to load
     preBuild() {
         this.masonryItems.forEach((element) => {
             element.removeAttribute('style')
             element.style.cssText = `display: none; opacity: 0;`
+            element.querySelector('a').style.cssText = `
+            width: 100%; height: 100%; display: block; line-height: 0px; overflow: hidden;`
         })
-        this.masonryItems.forEach((item) => {
-            item.querySelector('a').style.cssText = `
-            width: 100%; height: 100%; display: block; line-height: 0px; overflow: hidden;`;
-        });
     }
 
     build() {
+
+        // Set start values to masonry grid building
         this.loadingImg = 0;
         this.mainContainer.style.margin = -(this.gap) + 'px';
         this.stringsElementsCollection = [];
@@ -68,10 +72,13 @@ export default class Masonry_x {
         this.oneStringWidth = 0;
         this.elementPositionX = 0;
         this.elementPositionY = 0;
+
+        // Set params to the main container
         this.setMainContainerWidth();
         this.setMainContainerStyles();
     }
 
+    // Add zoom effect styles (if option is define), and waiting for the image to load
     loadImg() {
         this.item = this.masonryItems[this.loadingImg]
         let img = this.item.querySelector('img')
@@ -85,6 +92,7 @@ export default class Masonry_x {
         img.complete ? this.afterLoad() : img.onload = () => this.afterLoad()
     }
 
+    // Place uploaded image in the grid. If the image is not last - loading new
     afterLoad() {
         this.place()
         if (this.loadingImg < this.masonryItems.length - 1) {
@@ -93,6 +101,7 @@ export default class Masonry_x {
         }
     }
 
+    // Image placement in a grid
     place() {
         let img = this.item.querySelector('img')
         img.removeAttribute('style')
@@ -129,6 +138,7 @@ export default class Masonry_x {
         }
     }
 
+    // Reallocate elements on the last two lines
     spreadLast() {
         let penultimateStringWidth = this.stringsWidth[this.stringsWidth.length - 2]
         let lastStringWidth = this.stringsWidth[this.stringsWidth.length - 1];
@@ -176,6 +186,7 @@ export default class Masonry_x {
         display: block; position: relative; height: 100%; overflow: hidden;`;
     }
 
+    // Make the same length of lines
     smoothEdge() {
         for (let i = 0; i < this.stringsElementsCollection.length; i++) {
             let offsetLeft = 0;
@@ -188,18 +199,6 @@ export default class Masonry_x {
                 element.style.left = offsetLeft + 'px';
                 offsetLeft += newElementWidth;
             }
-        }
-    }
-
-    rebuildStringWidth() {
-        let offsetLeft = 0;
-        
-        for (let i = 0; i < this.currentStringElements.length; i++) {
-            let element = this.currentStringElements[i];
-            let newElementWidth = element.clientWidth * this.mainContainerWidth / this.oneStringWidth;
-            element.style.width = newElementWidth + 'px';
-            element.style.left = offsetLeft + 'px';
-            offsetLeft += newElementWidth;
         }
     }
 }
