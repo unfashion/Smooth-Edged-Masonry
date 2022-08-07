@@ -22,7 +22,7 @@ export default class Masonry {
             })
         })
     }
-
+    // Define breakpoint from the array 'breakPoints' that corresponds to the width of the gallery container
     adaptDefine() {
         this.breakPoints.forEach((point, i) => {
 
@@ -33,6 +33,7 @@ export default class Masonry {
         })
     }
 
+    // Rebuilding the grid when changing the width of the main container
     onResize() {
         this.setMainContainerWidth()
         this.adaptDefine()
@@ -53,6 +54,8 @@ export default class Masonry {
         })
     }
 
+    // Add inline css for items of gallery BEFORE loading images.
+    // Hide items to wait for images to load
     preBuild() {
         this.masonryItems.forEach((item) => {
             item.querySelector('a').style.cssText = `
@@ -69,11 +72,10 @@ export default class Masonry {
         this.masonryItems.forEach((element) => {
             element.removeAttribute('style')
             element.style.cssText = `display: none; opacity: 0;`
-            // let img = element.querySelector('img')
-            // img.setAttribute('data-src', img.getAttribute('src'))
-            // img.removeAttribute('src')
         })
     }
+
+    //Define arrays and set start values to masonry grid building
     build() {
         this.mainContainerWidth = this.mainContainer.clientWidth;
         this.columnWidth = this.mainContainerWidth / this.columnsCount;
@@ -88,6 +90,7 @@ export default class Masonry {
         }
     }
 
+    // Add zoom effect styles (if option is define), and waiting for the image to load
     loadImg() {
         this.item = this.masonryItems[this.loadingImg]
         let img = this.item.querySelector('img')
@@ -97,10 +100,10 @@ export default class Masonry {
             img.addEventListener('mouseover', (() => img.style.transform = 'scale(1.2)'));
             img.addEventListener('mouseout', (() => img.style.transform = ''));
         }
-        // img.setAttribute('src', img.getAttribute('data-src'))
         img.complete ? this.afterLoad() : img.onload = () => this.afterLoad()
     }
 
+    // Place uploaded image in the grid. If the image is not last - loading new
     afterLoad() {
         this.item.removeAttribute('style')
         this.place()
@@ -129,8 +132,8 @@ export default class Masonry {
         this.mainContainer.style.cssText = `display: block; position: relative; height: 100%; overflow: hidden;`
     }
 
+    // Image placement in the grid
     place() {
-
         this.item.style.cssText = `
         box-sizing: border-box;
         position: absolute;
@@ -147,6 +150,7 @@ export default class Masonry {
         this.columnsY[minHeightColumnIndex] = this.columnsY[minHeightColumnIndex] + this.item.clientHeight;
     }
 
+    // Make the column heights the same
     colsAlign() {
         let averageColumnHeight = (this.columnsY.reduce((a, b) => a + b)) / this.columnsY.length;
         this.mainContainer.style.height = averageColumnHeight + 'px';

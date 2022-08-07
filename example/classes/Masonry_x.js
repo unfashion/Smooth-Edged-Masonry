@@ -101,7 +101,7 @@ export default class Masonry_x {
         }
     }
 
-    // Image placement in a grid
+    // Image placement in the grid
     place() {
         let img = this.item.querySelector('img')
         img.removeAttribute('style')

@@ -58,11 +58,11 @@ new Masonry_x({
 
     // An array of breakpoints for the width of the main gallery container
     // (in pixels, without units)
-    breakPoints: [0, 400, 1000],
+    breakPoints: [0, 400, 700],
 
     // The height of the images (in pixels, without units).
     // Each value corresponds to a breakpoint from the  breakPoints array
-    lineHeights: [200, 300, 400],
+    lineHeights: [100, 150, 200],
 
     // The gaps between the images.
     // Together with the units of measurement.
@@ -90,11 +90,11 @@ new Masonry_y({
 
     // An array of breakpoints for the width of the main gallery container
     // (in pixels, without units)
-    breakPoints: [0, 400, 1000],
+    breakPoints: [0, 400, 700],
 
     // Columns count. 
     // Each value corresponds to a breakpoint from the  breakPoints array
-    columns: [1, 2, 3],
+    columns: [2, 3, 4],
 
     // The gaps between the images.
     // Together with the units of measurement.
