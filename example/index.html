@@ -71,7 +71,7 @@
                     <img src="./img/11.jpg" alt="" class="picture__img">
                 </a>
             </div>
-            
+
         </div>
         <br>
         <h1 class="header">Vertical masonry</h1>
@@ -134,11 +134,41 @@
         </div>
         <br>© photo by Dimitry Bushuev
         <br>
-
     </div>
-     <script type="module">
+    <div class="modal">
+        <div class="modal__close" id="close">
+            <a class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path
+                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                </svg>
+            </a>
+        </div>
+        <div class="modal__slider-line">
+        </div>
+        <div class="modal__controls modal-controls">
+            <div class="modal-controls__left" id="left">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path
+                            d="M192 448c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l137.4 137.4c12.5 12.5 12.5 32.75 0 45.25C208.4 444.9 200.2 448 192 448z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="modal-controls__right" id="right">
+                <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                        <path
+                            d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
         import Masonry_x from './classes/Masonry_x.min.js';
         import Masonry_y from './classes/Masonry_y.min.js';
+        import Lightbox from './classes/Lightbox.js';
 
         new Masonry_x({
             mainContainer: '.unf-masonry_x',
@@ -157,8 +187,9 @@
             gaps: ['1px', '2px', '3px'],
             zoom: '2s',
         });
+        new Lightbox();
 
-    </script> 
+    </script>
 </body>
 
 </html>
