@@ -120,7 +120,7 @@ export default class Lightbox {
     }
 
     slide() {
-        this.sliderLine.style.left = -this.clickedElemNum * this.modalCenterWidth + 'px';
+        this.sliderLine.style.left = -this.clickedElemNum * (this.modal.clientWidth + 12) -6 + 'px';
         this.slideLoad();
     }
 
