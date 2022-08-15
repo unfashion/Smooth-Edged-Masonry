@@ -17,6 +17,8 @@ export default class Lightbox {
         this.isModalBuilded = false;
         this.slideCollection = [];
 
+        this.gap = 12;
+
         window.addEventListener("load", () => this.modalInit());
     }
 
@@ -74,6 +76,7 @@ export default class Lightbox {
             img.setAttribute('data-src', imageUrl)
             let slide = document.createElement('div');
             slide.classList.add('modal__slide')
+            slide.style.marginRight = this.gap + 'px'
             slide.innerHTML = `
             <div class="modal__slider-container">
             <div class="modal__footer">
@@ -120,7 +123,7 @@ export default class Lightbox {
     }
 
     slide() {
-        this.sliderLine.style.left = -this.clickedElemNum * (this.modal.clientWidth + 12) -6 + 'px';
+        this.sliderLine.style.left = -this.clickedElemNum * (this.modal.clientWidth + this.gap) + 'px';
         this.slideLoad();
     }
 
@@ -140,8 +143,6 @@ export default class Lightbox {
                     img.removeAttribute('data-src')
                     slide.querySelector('.preloader').remove();
                 })
-
-
             }
         })
     }
